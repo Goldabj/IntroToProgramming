@@ -1,0 +1,167 @@
+"""
+Test 3, part of problem 3.
+
+Authors: David Mutchler, Mark Hays, Michael Wollowski,
+         Chandan Rupakheti, Matt Boutell, Dave Fisher,
+         Claude Anderson, and PUT YOUR NAME HERE.  November 2014.
+"""  # TODO: PUT YOUR NAME IN THE ABOVE LINE.
+
+# ----------------------------------------------------------------------
+# TODO: Add code below (at the appropriate places)
+#       to test your   Balloon   class as you implement it.
+#       The   Balloon   class is in the separate file  balloon.py
+#
+# IMPORTANT:
+#  1. Read the specification of the ENTIRE   Balloon   class BEFORE
+#       writing any code.
+#  2. Test each method AS YOU DEFINE IT (one by one).
+# ----------------------------------------------------------------------
+
+import problem3_balloon as balloon
+
+
+def main():
+    """ Tests the   Balloon  class """
+    test_init()
+    test_blow_air_into()
+    test_puncture()
+    test_let_air_out()
+    test_owners_age()
+    test_fuller_balloon()
+    test_new_balloon()
+    test_unpunctured_balloons()
+
+
+def test_init():
+    print('------------------------------------')
+    print('Testing __init__:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+
+def test_blow_air_into():
+    print('\n------------------------------------')
+    print('Testing blow_air_into:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+
+def test_puncture():
+    print('\n------------------------------------')
+    print('Testing puncture:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+
+def test_let_air_out():
+    print('\n------------------------------------')
+    print('Testing let_air_out:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+
+def test_owners_age():
+    print('\n------------------------------------')
+    print('Testing owners_age:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+
+def test_fuller_balloon():
+    print('\n------------------------------------')
+    print('Testing fuller_balloon:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+
+def test_new_balloon():
+    print('\n------------------------------------')
+    print('Testing new_balloon:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+
+def test_unpunctured_balloons():
+    print('\n------------------------------------')
+    print('Testing unpunctured_balloons:')
+
+    child1 = balloon.Person(6, 40)
+    adult1 = balloon.Person(28, 130)
+    adult2 = balloon.Person(40, 170)
+
+    balloon1 = balloon.Balloon(1.4, child1)
+    balloon2 = balloon.Balloon(4.0, adult1)
+    balloon3 = balloon.Balloon(1.5, adult2)
+    balloon4 = balloon.Balloon(2.0, child1)
+
+    # Add code below here to continue this test:
+
+# ----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+# ----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

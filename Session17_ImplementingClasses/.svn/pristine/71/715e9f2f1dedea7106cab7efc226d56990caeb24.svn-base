@@ -1,0 +1,64 @@
+"""
+Tests the   BankAccount  class
+that is defined in the imported   m1_BankAccount   module.
+
+Authors: David Mutchler, Mark Hays, Michael Wollowski, Amanda Stouder,
+         Chandan Rupakheti, Katie Dion, Claude Anderson, Delvin Defoe,
+         Curt Clifton, Matt Boutell, Dave Fisher, their colleagues,
+         and PUT YOUR NAME HERE.  October 2014.
+"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE
+
+import m1_BankAccount as ba
+
+
+def main():
+    """
+    Tests the   BankAccount   class
+    defined in the imported   m1_BankAccount   module.
+
+    See   UML_BankAccount.pdf   for BankAccount's UML class diagram.
+    """
+    # TODO: With your instructor, add code below
+    #   (at the appropriate places) to test the   BankAccount   class
+    #   that is defined in the imported  m1_BankAccount   module
+    #   and whose UML class diagram is shown in   UML_BankAccount.pdf.
+
+    print('--------------------------------------')
+    print('Testing __init__:')
+
+    print('\n--------------------------------------')
+    print('Testing __repr__:')
+
+    print('\n--------------------------------------')
+    print('Testing deposit:')
+
+    print('\n--------------------------------------')
+    print('Testing withdraw:')
+
+    print('\n--------------------------------------')
+    print('Testing number_of_deposits:')
+
+    print('\n--------------------------------------')
+    print('Testing number_of_withdrawals:')
+
+    print('\n--------------------------------------')
+    print('Testing number_of_refused_withdrawals:')
+
+    print('\n--------------------------------------')
+    print('Testing transfer_from:')
+
+    print('\n--------------------------------------')
+    print('Testing transfer_into:')
+
+    print('\n--------------------------------------')
+    print('Testing richer:')
+
+    print('\n--------------------------------------')
+    print('Testing transfer_to_new_account:')
+
+# ----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+# ----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

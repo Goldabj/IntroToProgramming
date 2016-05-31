@@ -1,0 +1,292 @@
+"""
+PRACTICE Test 2, problem 1.
+
+Authors: David Mutchler, Chandan Rupakheti, Matt Boutell, Dave Fisher,
+         Claude Anderson, and PUT YOUR NAME HERE.  September 2013.
+"""  # TODO: PUT YOUR NAME IN THE ABOVE LINE.
+
+import rosegraphics as rg
+import random
+
+
+def main():
+    """ Calls the   TEST   functions in this module. """
+    test_problem1a()
+    test_problem1b()
+    test_problem1c()
+
+
+def test_problem1a():
+    """ Tests the   problem1a   function. """
+    print()
+    print('--------------------------------------------------')
+    print('Testing the   problem1a   function:')
+    print('--------------------------------------------------')
+
+    # One test.
+    test1 = [50, 77, 40, 3, 90, 10, 30, 80]
+    mutated1 = [50, 30, 10, 3, 90, 40, 77, 80]
+
+    print()
+    print('Before the mutation:', test1)
+    problem1a(test1)
+
+    print('After the mutation: ', test1)
+    print('The above should be:', mutated1)
+    if test1 == mutated1:
+        print('PASSED the test.')
+    else:
+        print('FAILED the test!')
+
+    # ------------------------------------------------------------------
+    # TODO: Add at least 2 more tests.
+    #       Try to choose tests that might expose errors in your code!
+    #       Use a form similar to the form of the above test.
+    #
+    # THEN: Ask an assistant to CHECK your tests to confirm
+    #       that they are adequate tests!
+    # ------------------------------------------------------------------
+
+
+def problem1a(list_of_integers):
+    """
+    MUTATEs the given list of integers to become partially sorted,
+    as follows:
+      -- Compares the first (beginning) and last items in the list.
+           If the first item is greater than the last item,
+           this function swaps those two items.
+      -- Compares the second and second-to-last items in the list.
+           If the second item is greater than the second-to-last item,
+           this function swaps those two items.
+      -- And so forth.
+
+    For example, if the given list of integers is:
+      [50, 77, 40, 3, 90, 10, 30, 80]
+    then after this function call that list of integers is mutated into:
+      [50, 30, 10, 3, 90, 40, 77, 80]
+    because 50 is compared to 80,
+    then 77 is compared to 30 (swap them!),
+    then 40 is compared to 10 (swap them!),
+    then 3 is compared to 90.
+
+    Precondition:
+      :type: list_of_integers: list
+    and the list contains only integers.
+    """
+    # ------------------------------------------------------------------
+    # TODO: Implement and test this function.
+    #       Some tests are already written for you (above),
+    #       but you are required to write ADDITIONAL tests (above).
+    # ------------------------------------------------------------------
+
+
+def test_problem1b():
+    """ Tests the   problem1b   function. """
+    print()
+    print('--------------------------------------------------')
+    print('Testing the   problem1b   function:')
+    print('--------------------------------------------------')
+
+    number_of_ranges = 3
+    number_of_tests_per_range = 5
+
+    for k in range(number_of_ranges):
+        min_x = random.randrange(10, 100)
+        max_x = random.randrange(min_x, min_x + 100)
+        min_y = random.randrange(50, 200)
+        max_y = random.randrange(min_y, min_y + 40)
+        my_radius = random.randrange(1, 50)
+
+        message1 = 'Test {}: calling problem1b {} times.'
+        message2 = 'Each x should be random in [{:3}, {:3}]'
+        message3 = 'Each y should be random in [{:3}, {:3}]'
+        message4 = 'Each r should be random in [1, {:2}]'
+
+        print()
+        print(message1.format(k + 1, number_of_tests_per_range))
+        print(message2.format(min_x, max_x))
+        print(message3.format(min_y, max_y))
+        print(message4.format(my_radius))
+
+        for _ in range(number_of_tests_per_range):
+            circle = problem1b(min_x, max_x, min_y, max_y, my_radius)
+            if not isinstance(circle, rg.Circle):
+                msg = 'FAILED test {} -- you did not return an rg.Circle.'
+                print(msg.format(k + 1))
+                print('Quitting the rest of these tests.')
+                return
+            actual = 'x = {:3}, y = {:3}, r = {:2}'
+            print(actual.format(circle.center.x,
+                                circle.center.y,
+                                circle.radius))
+        print('CHECK your answers above -- did you pass these tests?')
+
+
+def problem1b(min_x, max_x, min_y, max_y, max_radius):
+    """
+    Returns an rg.Circle whose:
+      -- x-coordinate is a random integer in the range [min_x, max_x]
+      -- y-coordinate is a random integer in the range [min_y, max_y]
+      -- radius is a random integer in the range [1, max_radius]
+
+    Preconditions:
+      :type min_x: int
+      :type max_x: int
+      :type min_y: int
+      :type max_y: int
+      :type max_radius: int
+    and all the arguments are positive,
+    and max_x > min_x, and max_y > min_y.
+    """
+    # ------------------------------------------------------------------
+    # TODO: Implement and test this function.
+    #       We have supplied tests for you (above).
+    #
+    # HINT: Look up   random.randrange   in the Python documentation
+    #       at     https://docs.python.org/3.4/library/random.html
+    #       to see how to generate a random integer in a given range.
+    # ------------------------------------------------------------------
+
+
+def test_problem1c():
+    """ Tests the   problem1c   function. """
+    print()
+    print('--------------------------------------------------')
+    print('Testing the   problem1c   function:')
+    print('--------------------------------------------------')
+
+    # ------------------------------------------------------------------
+    # STUDENTS:  READ these tests, asking questions as needed.
+    # ------------------------------------------------------------------
+
+    # ------------------------------------------------------------------
+    # The next line makes subsequent calls to  randrange  deterministic,
+    # which makes the testing repeatable and hence may make debugging
+    # easier.  The number  8  is arbitrary.
+    # ------------------------------------------------------------------
+    random.seed(8)
+
+    # ------------------------------------------------------------------
+    # This set of tests is VISUAL -- the tester looks at the circles
+    # on a window to see whether the code passes or fails the test.
+    # ------------------------------------------------------------------
+    print()
+    print('This test is VISUAL')
+    print('See the window that pops up.')
+
+    width = 800
+    height = 600
+
+    # Extra height to allow for messages
+    window = rg.RoseWindow(width, height + 125,
+                           'Test Problem 1c: colored circles')
+
+    # First set of tests, shown in upper-left quadrant.
+    colors1 = ('blue', 'red')
+    max_radius1 = 30
+    tests1 = 20
+
+    for _ in range(tests1):
+        circle = problem1b(0, width // 2, 0, height // 2, max_radius1)
+        if circle is None:
+            print()
+            print('Either you have not done Problem 1c yet (ok!)')
+            print('or you have done Problem 1c wrong (not ok!).')
+            print('I am quitting this test!')
+            window.close_on_mouse_click()
+            return
+        problem1c(circle, colors1)
+        circle.attach_to(window.initial_canvas)
+
+    message1 = 'You should see {} circles in the upper-left quadrant.'
+    message2 = 'About half should be blue, half red.'
+    message3 = 'Radii should range from 1 to {}.'
+    text1 = rg.Text(rg.Point(width // 2, height + 25),
+                    message1.format(tests1))
+    text2 = rg.Text(rg.Point(width // 2, height + 50), message2)
+    text3 = rg.Text(rg.Point(width // 2, height + 75),
+                    message3.format(max_radius1))
+    text1.attach_to(window.initial_canvas)
+    text2.attach_to(window.initial_canvas)
+    text3.attach_to(window.initial_canvas)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    # Second set of tests, shown in lower-right quadrant.
+    colors2 = ('green', 'red', 'green', 'blue', 'black', 'green')
+    max_radius2 = 20
+    tests2 = 60
+
+    for _ in range(tests2):
+        circle = problem1b(width // 2, width, height // 2, height,
+                           max_radius2)
+        problem1c(circle, colors2)
+        circle.attach_to(window.initial_canvas)
+
+    message1 = 'You should see {} circles in the lower-right quadrant.'
+    message2 = 'About half should be green, the rest red, blue and black.'
+    message3 = 'Radii should range from 1 to {}.'
+    text1.text = message1.format(tests2)
+    text2.text = message2
+    text3.text = message3.format(max_radius2)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    # Third set of tests, shown in upper-right quadrant.
+    colors3 = ('magenta',)
+    max_radius3 = 60
+    tests3 = 5
+
+    for _ in range(tests3):
+        circle = problem1b((3 * width) // 4, width, 0, height // 4,
+                           max_radius3)
+        problem1c(circle, colors3)
+        circle.attach_to(window.initial_canvas)
+
+    message1 = 'You should see {} circles in the upper-right corner.'
+    message2 = 'All should be magenta'
+    message3 = 'Radii should range from 1 to {}.'
+    text1.text = message1.format(tests3)
+    text2.text = message2
+    text3.text = message3.format(max_radius3)
+
+    window.render()
+    window.close_on_mouse_click()
+
+
+def problem1c(shape, colors):
+    """
+    MUTATES the given rg.Shape so that its fill color is chosen RANDOMLY
+    from the given sequence of colors, with each item in the sequence
+    having an equal chance of being chosen.
+
+    For example, if the list of colors is
+       ['red', 'white', 'blue', 'blue', 'green']
+    then this shape has a:
+      -- 20% chance of being filled with 'red'
+      -- 20% chance of being filled with 'white'
+      -- 40% chance of being filled with 'blue'
+          [since 'blue' appears TWICE in the list]
+      -- 20% chance of being filled with 'green'
+
+    Preconditions:
+      :type shape: rg._ShapeWithOutline
+      :type colors: (list, tuple)
+    and the items in colors are colors suitable for RoseGraphics.
+    """
+    # TODO: Implement and test this function.
+    #       Tests have already been written for you (above).
+    #
+    # HINT: To choose an item randomly from a list of N things,
+    #       use   random.randrange(N)   as the index to the list.
+    #       Do you see how that generates colors with the required
+    #       randomness?  If not, post a question on Piazza about that!
+
+# ----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+# ----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

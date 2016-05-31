@@ -1,0 +1,201 @@
+"""
+Test 1, problem 3.
+
+Authors: David Mutchler, Michael Wollowski, Mark Hays, their colleagues,
+         and PUT YOUR NAME HERE.  September 2014.
+"""  # TODO: PUT YOUR NAME IN THE ABOVE LINE.
+
+import rosegraphics as rg
+
+
+def main():
+    """ Calls the   TEST   functions in this module. """
+    test_problem3a()
+    test_problem3b()
+    test_problem3c()
+
+
+def test_problem3a():
+    """ Tests the   problem3a   function. """
+    # This function has been implemented for you.
+    # Although you can add to it if you wish, there is no need to do so.
+    print()
+    print('---------------------------------------------------------')
+    print('Testing the   problem3a   function.')
+    print('See the windows that pop up.')
+    print('---------------------------------------------------------')
+    window1 = rg.RoseWindow(400, 300, 'Two tests of problem3a')
+    problem3a(window1, 100, 200, 20, 'green')
+    problem3a(window1, 200, 100, 60, 'blue')
+    window1.close_on_mouse_click()
+
+    window2 = rg.RoseWindow(325, 250, 'Another test of problem3a')
+    problem3a(window2, 150, 100, 80, 'yellow')
+    window2.close_on_mouse_click()
+
+
+def problem3a(window, x, y, radius, color):
+    """
+    See  problem3a_pictures.pdf   in this project for pictures
+    that may help you better understand the following specification.
+
+    Draws, on the given rg.RoseWindow:
+
+      1. A rg.Circle centered at the given x and y,
+           with the given radius and with the given color
+           as its fill color and with 3 as its outline thickness.
+
+      2. A rg.Square that circumscribes the rg.Circle,
+         with the given color as its outline color
+         and with 5 as its outline thickness.
+
+    Preconditions:
+       :type window: rg.RoseWindow
+       :type x: int
+       :type y: int
+       :type radius: int
+       :type color: str
+    """
+    # We have ALREADY implemented this for you.  Do NOT modify it.
+    # You will ** CALL ** this function in problem3b.
+    circle = rg.Circle(rg.Point(x, y), radius)
+    circle.fill_color = color
+    circle.outline_thickness = 3
+    circle.attach_to(window.initial_canvas)
+
+    square = rg.Square(circle.center, 2 * radius)
+    square.outline_color = color
+    square.outline_thickness = 5
+    square.attach_to(window.initial_canvas)
+
+    window.render()
+
+
+def test_problem3b():
+    """ Tests the   problem3b   function. """
+    # This function has been implemented for you.
+    # Although you can add to it if you wish, there is no need to do so.
+    print()
+    print('---------------------------------------------------------')
+    print('Testing the   problem3b   function.')
+    print('See the windows that pop up.')
+    print('---------------------------------------------------------')
+    window1 = rg.RoseWindow(400, 500, 'Two tests of problem3b')
+    circle1 = rg.Circle(rg.Point(100, 50), 40)
+    circle2 = rg.Circle(rg.Point(225, 30), 20)
+    problem3b(window1, circle1, 5, 'blue')
+    problem3b(window1, circle2, 8, 'red')
+    window1.close_on_mouse_click()
+
+    window2 = rg.RoseWindow(400, 700, 'Another test of problem3b')
+    circle2 = rg.Circle(rg.Point(60, 60), 50)
+    problem3b(window2, circle2, 6, 'black')
+    window2.close_on_mouse_click()
+
+
+def problem3b(window, top_circle, n, color):
+    """
+    See  problem3b_pictures.pdf   in this project for pictures
+    that may help you better understand the following specification.
+
+    Draws n circles with squares circumscribing them, as follows:
+      -- They are all drawn on the given RoseWindow.
+      -- The first circle is at the same position as the given
+           top_circle, with the same radius as the given top_circle.
+      -- The fill colors, outline colors and outline thicknesses
+           are all as in problem3a.
+
+    Preconditions:
+       :type window: rg.RoseWindow
+       :type circle: rg.Circle
+       :type n: int
+       :type color: str
+    and n is positive.
+    """
+    # TODO: Implement and test this function.
+    #       The testing code is already written for you (above).
+    #
+    # IMPORTANT: For full credit, this function must
+    #            ** CALL problem3a ** appropriately.
+
+
+def test_problem3c():
+    """ Tests the   problem3c   function. """
+    # This function has been implemented for you.
+    # Although you can add to it if you wish, there is no need to do so.
+    print()
+    print('---------------------------------------------------------')
+    print('Testing the   problem3c   function.')
+    print('See the windows that pop up.')
+    print('---------------------------------------------------------')
+    window1 = rg.RoseWindow(550, 400, 'Two tests of problem3c')
+
+    rectangle1 = rg.Rectangle(rg.Point(400, 70), 60, 100)
+    circle1 = rg.Circle(rg.Point(450, 300), 50)
+    problem3c(window1, rectangle1, 'cyan', circle1,
+              'Mars, Neptune or Pluto?', 'green')
+
+    rectangle2 = rg.Rectangle(rg.Point(200, 100), 130, 40)
+    circle2 = rg.Circle(rg.Point(50, 180), 30)
+    problem3c(window1, rectangle2, 'yellow', circle2,
+              'I have a dream!', 'blue')
+
+    window1.close_on_mouse_click()
+
+    window2 = rg.RoseWindow(700, 300, 'Another test of problem3c')
+
+    rectangle3 = rg.Rectangle(rg.Point(600, 200), 75, 75)
+    circle3 = rg.Circle(rg.Point(100, 70), 35)
+    message = 'Love the life you live, and live the life you love.'
+    message = message + ' (Bob Marley)'
+
+    problem3c(window2, rectangle3, 'red', circle3, message, 'blue')
+
+    window2.close_on_mouse_click()
+
+
+def problem3c(window, rectangle, rectangle_color, circle,
+              message, message_color):
+    """
+    See  problem3c_pictures.pdf   in this project for pictures
+    that may help you better understand the following specification:
+
+    1. Draws the given rg.Rectangle on the given rg.RoseWindow,
+         filling it with the given rectangle_color.
+
+    2. Draws the given rg.Circle on the given rg.RoseWindow,
+         setting its outline color to 'purple'
+         and its outline thickness to 10.
+
+    3. Draws a rg.Line from the center of the given rectangle
+         to the center of the given circle,
+         setting the line's thickness to 7
+         and the line's color to 'pink'.
+
+    4. Draws a rg.Text object centered at the midpoint of the
+         rg.Line that was just drawn.  The Text object should
+         show as its text the given message,
+         displayed in the given message_color.
+           NOTE: If you cannot successfully draw a Text object
+                 as described, you can get partial credit for
+                 drawing a rg.Square (instead of the Text object)
+                 centered at the midpoint of the rg.Line.
+                 (If you do this, make the rg.Square be 30 by 30.)
+
+    Preconditions:
+         :type window: rg.RoseWindow
+         :type rectangle: rg.Rectangle
+         :type rectangle_color: str
+         :type circle: rg.Circle
+         :type message: str
+         :type message_color: str
+    """
+    # TODO: Implement and test this function.
+    #       Some testing code is already written for you (above).
+
+# ----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+# ----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()

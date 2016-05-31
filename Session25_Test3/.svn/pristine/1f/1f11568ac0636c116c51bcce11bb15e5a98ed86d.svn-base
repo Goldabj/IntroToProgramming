@@ -1,0 +1,134 @@
+"""
+Test 3, problem 2a and 2b (where 2a is concentric_circles).
+
+Authors: Mark Hays, David Mutchler, Michael Wollowski, their colleagues,
+         and SOLUTION by David Mutchler.  November 2014.
+"""  # TODO: PUT YOUR NAME IN THE ABOVE LINE.
+
+import rosegraphics as rg
+
+
+def main():
+    """ Calls the   TEST   functions in this module. """
+    test_concentric_circles()
+    test_problem2()
+
+
+def test_concentric_circles():
+    """ Tests the   problem4a   function. """
+    # ------------------------------------------------------------------
+    # We have implemented this function for you.
+    # These tests produce the pictures shown in the attached
+    #    concentric_picture.pdf.
+    # ------------------------------------------------------------------
+    window = rg.RoseWindow(600, 300,
+                           'concentric_circles, tests 1 and 2')
+
+    # Test 1:
+    concentric_circles(window,
+                       rg.Circle(rg.Point(100, 100), 50),
+                       6)
+
+    # Test 2:
+    concentric_circles(window,
+                       rg.Circle(rg.Point(300, 100), 70),
+                       3)
+    window.close_on_mouse_click()
+
+
+def concentric_circles(window, outer_circle, n):
+    """
+    See   concentric_circles.pdf   in this project for pictures
+    that may help you better understand the following specification:
+
+    Draws   n   concentric circles of the given window,
+    where  n  is the 3rd parameter.
+    The outer circle is a clone (copy) of the given
+      outer_circle   parameter.
+    The inner circle has radius 5.
+    The other circles are spaced evenly in between.
+
+    Preconditions:
+      :type window: rg.RoseWindow
+      :type outer_circle: rg.Circle
+      :type n: int
+    and the integer argument is positive.
+    """
+    # ------------------------------------------------------------------
+    # TODO: Implement and test this function.  Partial credit
+    #       may be available if you get only part of this to work.
+    # ------------------------------------------------------------------
+
+
+def test_problem2():
+    """ Tests the   problem2   function. """
+    # ------------------------------------------------------------------
+    # We have implemented this function for you.  You are welcome
+    # to add more tests if you wish, but you do not have to do so.
+    # These tests produce the pictures shown in the attached
+    #    problem4_picture.pdf.
+    # ------------------------------------------------------------------
+    window1 = rg.RoseWindow(500, 500, 'Problem 2, test 1')
+
+    # Test 1:
+    problem2(window1,
+             7,
+             rg.Square(rg.Point(100, 50), 50))
+    window1.close_on_mouse_click()
+
+    # Tests 2 and 3:
+    window2 = rg.RoseWindow(600, 400, 'Problem 2, tests 2 and 3')
+
+    problem2(window2,
+             3,
+             rg.Square(rg.Point(100, 50), 50))
+
+    problem2(window2,
+             4,
+             rg.Square(rg.Point(300, 50), 50))
+
+    window2.close_on_mouse_click()
+
+
+def problem2(window, n, square):
+    """
+    See   problem2_picture.pdf   in this project for pictures that may
+    help you better understand the following specification:
+
+    First, draws the given square.
+
+    Then draws  an n x n square of "things" as follows:
+      -- Each "thing" consists of a set of concentric circles
+           where the concentric circles are as drawn by the
+           concentric_circles function defined above.
+      -- The upper-left "thing" has its outer circle circumscribed
+           by the given square.
+      -- Each "thing" in the uppermost (1st) row has n concentric circles.
+      -- Each "thing" in the 2nd row has n-1 concentric circles.
+      -- Each "thing" in the 3rd row has n-2 concentric circles.
+      -- Etc, so that each "thing" in the bottommost row has a single
+           circle.
+
+    Preconditions:
+      :type window: rg.RoseWindow
+      :type n: int
+      :type square: rg.Square
+    and n is non-negative
+    """
+    # ------------------------------------------------------------------
+    # TODO: Implement and test this function.  Partial credit
+    #       may be available if you get only part of this to work.
+    #
+    # IMPORTANT:  Use (call) the above   concentric_circles  function
+    #             as needed in this problem.
+    #
+    #             You can succeed at this problem even if your
+    #             concentric_circles are not exactly right.
+    # ------------------------------------------------------------------
+
+# ----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+# ----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()
